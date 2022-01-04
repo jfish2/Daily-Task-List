@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import List from "./components/List";
+import AddTodo from "./components/AddTodo";
+import React from "react";
+import CurrentDate from "./components/CurrentDate";
 
 function App() {
+    const [todos, setTodos] = React.useState([
+        { id: 1, text: "Study Go", done: false },
+        { id: 2, text: "Study React", done: false },
+        { id: 3, text: "Workout", done: false }
+    ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1><strong>JF's to do list</strong></h1>
+        <CurrentDate />
+        <List todos={todos} setTodos={setTodos}/>
+        <AddTodo setTodos={setTodos}/>
     </div>
   );
 }
